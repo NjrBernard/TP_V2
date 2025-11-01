@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau Pays
+        
+    </title>
+</head>
+
+<body onload="tableauPays()">
+    <h1 id="titre"></h1>
+    <h2 id="annee"></h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Drapeau</th>
+                <th>Nom</th>
+                <th>Valeur</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody id="corps"> </tbody>
+    </table>
+</body>
+
+<script defer>
+    let data = {
+        "polluant": "CO2",
+        "unite": "milliards de tonnes",
+        "annee": 2017,
+        "pays": [{ "nom": "Chine", "valeur": 9.26, "pourcentage": 28.2, "code": "cn" },
+        { "nom": "Etats-Unis", "valeur": 4.76, "pourcentage": 14.5, "code": "us" },
+        { "nom": "Inde", "valeur": 2.16, "pourcentage": 6.6, "code": "in" },
+        { "nom": "Russie", "valeur": 1.54, "pourcentage": 4.7, "code": "ru" },
+        { "nom": "Japon", "valeur": 1.13, "pourcentage": 3.4, "code": "jp" },
+        { "nom": "Allemagne", "valeur": 0.72, "pourcentage": 2.2, "code": "de" },
+        { "nom": "Corée du Sud", "valeur": 0.6, "pourcentage": 1.8, "code": "kr" },
+        { "nom": "Iran", "valeur": 0.57, "pourcentage": 1.7, "code": "ir" },
+        { "nom": "Canada", "valeur": 0.55, "pourcentage": 1.7, "code": "ca" }]
+    }
+
+    function tableauPays() {
+        const h1 = data.polluant;
+        const h2 = data.annee;
+        titre.innerHTML = "Pays émetteurs de " + h1;
+        console.log(h1);
+        annee.innerHTML = "Pour l'année " + h2;
+        console.log(h2)
+
+        const tbody = document.getElementById('corps');
+        let contenu = "";
+        for (let i = 0; i < data.pays.length; i++) {
+            const pays = data.pays[i];
+            const drapeau = "https://flagcdn.com/24x18/" + pays.code + ".png";
+
+            contenu += '<tr>';
+            contenu += '<td><img src="' + drapeau + '" alt="Drapeau ' + pays.nom + '" class="drapeau"></td>';
+            contenu += '<td>' + pays.nom + '</td>'
+            contenu += '<td>' + pays.valeur + '</td>'
+            contenu += '<td>' + pays.pourcentage + '</td>'
+            tbody.innerHTML = contenu;
+
+        }
+        console.log(contenu)
+    }
+</script>
+
+</html>

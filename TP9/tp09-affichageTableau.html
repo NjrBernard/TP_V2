@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="tp09-affichageTableau.js" defer></script>
+<body onload="init()" id="corps">
+    <h1>Filtrage par population</h1>
+    <form id="form-filtre" onsubmit="return false;">
+        <label for="minPop">MIN :</label>
+        <input type="number" id="minPop" name="minPop" placeholder="0" min="0">
+
+        <label for="maxPop">MAX :</label>
+        <input type="number" id="maxPop" name="maxPop" placeholder="Number.MAX_VALUE" min="0">
+
+        <button id="btnValider" type="button">Valider</button>
+    </form>
+
+    <div id="affichage"></div>
+
+</body>
+</html>

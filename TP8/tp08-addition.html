@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition</title>
+        <style>
+            input{border-radius: 10px; padding: 5px; margin: 1em ; text-align: center}
+            #n1 {border-color: blue; color: blue}
+            #n1:focus {outline: none}
+            #n2 {border-color: red; color: red}
+            input:focus {outline: none; border-width: 3px;}
+            #valider:hover {padding: 5px; color: purple}
+            #resultat {color: purple}
+        
+        </style>
+</head>
+<script defer>
+    function addition() {
+let a = Number(document.querySelector("#n1").value);
+let b = Number(document.querySelector("#n2").value);
+let somme= a + b ;
+document.querySelector("#resultat").textContent = somme;
+    console.log(somme)
+    }
+
+</script>
+<body>
+    <input type="text" id="n1" alt="n1">Nombre 1 </input>
+    <input type="text" id="n2" alt="n2">Nombre 2 </input>
+    <button id="valider" alt="Valider" onclick="addition(n1 + n2)">Valider</button>
+    <span id="resultat">Résultat</span>
+</body>
+
+</html>

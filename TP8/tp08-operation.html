@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opération</title>
+    <style>
+            input{border-radius: 10px; padding: 5px; margin: 1em ; text-align: center}
+            #n1 {border-color: blue; color: blue}
+            #n1:focus {outline: none}
+            #n2 {border-color: red; color: red}
+            input:focus {outline: none; border-width: 3px;}
+            #valider:hover {padding: 5px; color: purple}
+            #resultat {color: purple; font-size: 1.5em;}
+            #erreur {background-color: red; color: white; font-size: 1.8em;} 
+        
+        </style>
+</head>
+<script defer>
+function calcul() {
+    let a = Number(document.querySelector("#n1").value);
+    let b = Number(document.querySelector("#n2").value);
+    let calc;
+   if (document.querySelector("#add").checked) {calc = a + b;}
+   else if (document.querySelector("#sous").checked) {calc = a - b;}
+   else if (document.querySelector("#mult").checked) {calc = a * b;}
+   else if (document.querySelector("#divi").checked) {calc = (a / b).toFixed(2);}
+
+    if (isNaN(calc)) 
+    {   document.querySelector("#erreur").textContent= "Vous devez saisir un nombre"; 
+        document.querySelector("#resultat").textContent= ""
+     }
+    else 
+    {   document.querySelector("#resultat").textContent= "Le résultat de cette opération est: " +  calc;
+        document.querySelector("#erreur").textContent= ""
+    }
+
+}
+</script>
+<body>
+    <input type="text" id="n1" alt="n1">Nombre 1 </input>
+    <input type="text" id="n2" alt="n1">Nombre 2 </input>
+    <button id="valider" alt="Valider" onclick="calcul(n1 + n2)">Calculer</button><br>
+    <span id="erreur"></span><br><br>
+    <span id="resultat">Résultat</span><br><br>
+    <input type="radio" name ="op" id="add" checked>Addition </input>
+    <input type="radio" name ="op" id="sous">Soustraction </input>
+    <input type="radio" name = "op" id="mult">Multiplication </input>
+    <input type="radio" name = "op" id="divi">Division </input>
+</body>
+</html>

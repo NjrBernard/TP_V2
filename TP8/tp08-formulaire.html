@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+    <style>
+      #messageErreur {
+        background-color: red;
+      }
+    </style>
+</head>
+<script defer>
+    
+
+
+    function envoyer() {
+    let nom = document.querySelector("#nom").value;
+    let prenom = document.querySelector("#prenom").value;
+    let dateNaissance = document.querySelector('#dateNaissance').value;
+        console.log(nom)
+        if (nom =="" || prenom == "" || dateNaissance == "") {
+            document.querySelector("#message").textContent= "";
+        document.querySelector("#messageErreur").textContent= "Erreur";
+                 
+            }
+        else { document.querySelector("#message").textContent= "ok";
+        document.querySelector("#messageErreur").textContent= "";
+        }
+    }
+
+
+</script>
+<!-- <body>
+Nom  <input type="text" id="name" name="name"><br>
+Prénom <input type="text" id="prenom" name="prenom"><br>
+Date de naissance <input type="date" id="dateNaissance" name="dateNaissance"><br><br>
+<button type="button" onclick="envoyer()">Envoyer</button><br><br>
+<span id="result">......</span>
+
+    
+</body> -->
+
+<body>
+      <h2>Formulaire d'inscription</h2>
+ 
+  <form id="formulaire">
+    <p>
+      Nom : <input type="text" id="nom" placeholder="Votre nom">
+    </p>
+    <p>
+      Prénom : <input type="text" id="prenom" placeholder="Votre prénom">
+    </p>
+    <p>
+      Date de naissance : <input type="date" id="dateNaissance">
+    </p>
+    <button type="button" onclick="envoyer()">Valider</button>
+  </form>
+ 
+  <div id="messageErreur"></div>
+  <div id="message"></div>
+</html>

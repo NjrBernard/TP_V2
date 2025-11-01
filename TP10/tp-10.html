@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+    <style>
+        
+        table {
+            border-collapse:collapse;
+        }
+        
+        td, th {
+            border: solid;
+            
+        }
+        
+
+    </style>
+</head>
+<script src="modale-view.js"></script>
+<header><h1>Gestion des utilisateurs </h1></header>
+<body>
+    <button onclick="openModale('modale1');">Créer un utilisateur</button>
+    <button onclick="openModale('modale2');">Supprimer un utilisateur</button><br><br>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Date de naissance</th>
+                <th>Lieu de naissance</th>
+                <th>Adresse</th>
+                <th>Icone poubelle</th>
+            </tr>
+        </thead>
+        <tbody id="contenuTableau">
+
+        </tbody>
+    </table>
+<modale-view id="modale1" modale-width="60%">
+        <div slot="title" header-color="#dc3545">Créer un utilisateur</div>
+        <div slot="body">
+            <form>
+                Prénom <br> <input type="text" name="prenom"><br>
+                Nom <br> <input type="text" name="nom"><br>
+                Date de naissance <br> <input type="date" name="dateNaissance"><br>
+                Lieu de naissance <br> <input type="text" name="lieuNaissance"><br>
+                Adresse <br> <input type="string" name="adresse"><br>
+            </form>
+        </div>
+        <div slot="footer">
+            <input type="button" value="Annuler" onclick="closeModale('modale1')"> <input type="button" value="Valider" onclick="creerUtilisateur()">
+        </div>
+    </modale-view>
+
+<modale-view id="modale2" modale-width="30%">
+        <div slot="title" header-color="#0000AA">Supprimer un utilisateur</div>
+        <div slot="body">
+            <form>
+                Ligne à supprimer <input type="number" name="ligne"><br><br>
+            </form>
+        </div>
+        <div slot="footer">
+            <input type="button" value="Non" onclick="closeModale('modale2')"> <input type="button" value="Oui" onclick="supprimerUtilisateur()">
+        </div>
+    </modale-view>
+</body>
+</html>
