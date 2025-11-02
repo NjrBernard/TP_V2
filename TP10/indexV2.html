@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <script src="modale-view-v2.js"></script>
+    <style>
+        table{
+
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            min-width: 50px;
+            border: solid 1px;
+            padding: 0.5em;
+        }
+
+        #adresse {
+            min-width: 300px;
+        }
+
+        #numId {
+            max-width: 20px;
+        }
+    </style>
+</head>
+<body id="body">
+<table id="tableau">
+    <thead>
+        <tr>
+            <th id="numId">ID</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Genre</th>
+            <th>Date de naissance</th>
+            <th>Lieu de naissance</th>
+            <th>Département de naissance</th>
+            <th id="adresse">Numéro de rue</th>
+            <th>Bouton Supprimer</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+
+    </tbody>
+</table>
+
+<p id="cLa">Ici, c'est le body</p>
+<button id="openModal" onclick="openModale('modale1');">Ouvrir la modale 1</button>
+<button id="openModal" onclick="openModale('modale2');">Ouvrir la modale 2</button>
+
+<modale-view id="modale1" modale-width="40%">
+    <div slot="title" header-color="#AA2222">Créer un utilisateur</div>
+    <div slot="body">
+        <form>
+            Nom <input type="text" id="nom" name="nom"><br>
+            Prénom <input type="text" id="prenom" name="prenom"><br>
+            Genre: <input type="radio" id="homme" name="genre" value="H">H<input type="radio" id="femme" name="genre" value="F">F<br>
+            Date de naissance <input type="date" id="dateNaissance" name="dateNaissance"><br>
+            Lieu de naissance <input type="text" id="lieuNaissance" name="lieuNaissance"><br>
+            Département de naissance <input type="number" id="departementNaissance" name="departementNaissance"><br>
+            Numéro de rue <input type="number" id="numRue" name="numRue"><br>
+            Nom de rue <input type="string" id="nomRue" name="nomRue"><br>
+            Code postal<input type="number" id="codePostal" name="codePostal"><br>
+            Ville<input type="string" id="ville" name="ville">
+        </form>
+    </div>
+    <div slot="footer">
+        <input type="button" value="Annuler" onclick="closeModale('modale1')"> <input type="button" value="Valider" onclick="creerUtilisateur()">
+    </div>
+</modale-view>
+
+<modale-view id="modale2" modale-width="40%">
+    <div slot="title">Afficher du texte</div>
+    <div slot="body">
+        <form>
+            Quelle ligne voulez vous supprimer ? <input type="text" id="supprimeLigne" name="afficheTexte">
+            Genre: <input type="radio" id="homm" name="genree" value="H">H<input type="radio" id="femm" name="genree" value="F">F<br>
+            <input type="button" value="Valider" onclick="supprimerUtilisateur()">
+        </form>
+    </div>
+</modale-view>
+</body>
+</html>
